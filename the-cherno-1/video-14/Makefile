@@ -1,13 +1,13 @@
-# Compiler variables
+# Variables
 CXX = g++
 
-# Compiler flags
+# Flags
 CXXFLAGS = -Wall -Wextra -std=c++20 -Ires/include
 LIBS     = -lglfw -lGL -ldl
 DEBUG    = -g -O0
 TARGET   = learning-opengl-cpp-thecherno
 SRC      = res/src/
-OBJS     = main.o $(SRC)gl.o $(SRC)Renderer.o $(SRC)IndexBuffer.o $(SRC)VertexBuffer.o
+OBJS     = main.o $(SRC)gl.o $(SRC)Renderer.o $(SRC)IndexBuffer.o $(SRC)VertexBuffer.o $(SRC)VertexArray.o
 
 
 .PHONY: run clean
