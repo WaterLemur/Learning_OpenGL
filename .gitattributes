@@ -1,5 +1,5 @@
 # Force .h files as C++ instead of C
-.h linguist-language=Cpp
+*.h linguist-language=Cpp
 
 # Force .shader as GLSL
-.shader linguist-language=GLSL
+*.shader linguist-language=GLSL
