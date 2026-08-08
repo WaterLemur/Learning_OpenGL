@@ -1,0 +1,37 @@
+# Compiler variables
+CXX = g++
+
+# Compiler flags
+CXXFLAGS = -Wall -Wextra -std=c++20
+LIBS     = -lglfw -lGL -ldl
+DEBUG    = -g -O0
+TARGET   = learning-opengl-cpp-thecherno-
+SRC      = res/src/
+
+$(TARGET): main.o $(SRC)gl.o $(SRC)Renderer.o $(SRC)IndexBuffer.o $(SRC)VertexBuffer.o
+	echo "Bulding program"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) main.o $(SRC)gl.o $(SRC)Renderer.o $(SRC)IndexBuffer.o $(SRC)VertexBuffer.o -o $(TARGET) $(LIBS)
+
+main.o: main.cpp
+	echo "Building main.o"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) -c main.cpp -o main.o
+
+$(SRC)gl.o: $(SRC)gl.c
+	echo "Bulding gl.o"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) -c $(SRC)gl.c -o $(SRC)gl.o
+
+$(SRC)Renderer.o: $(SRC)Renderer.cpp $(SRC)Renderer.h
+	echo "Building Renderer.o"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) $(SRC)Renderer.cpp -o $(SRC)Renderer.o
+
+$(SRC)IndexBuffer.o: $(SRC)IndexBuffer.cpp $(SRC)IndexBuffer.h
+	echo "Building IndexBuffer.o"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) $(SRC)IndexBuffer.cpp -o $(SRC)IndexBuffer.o 
+
+$(SRC)VertexBuffer.o: $(SRC)VertexBuffer.cpp $(SRC)VertexBuffer.h
+	echo "Building Renderer.o"
+	@$(CXX) $(CXXFLAGS) -Ires/include $(DEBUG) $(SRC)VertexBuffer.cpp -o $(SRC)VertexBuffer.o
+
+clean:
+	echo "Cleaning"
+	@rm -f $(TARGET) main.o $(SRC)gl.o $(SRC)Renderer.o $(SRC)IndexBuffer.o $(SRC)VertexBuffer.o
