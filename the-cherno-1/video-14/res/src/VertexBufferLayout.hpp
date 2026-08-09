@@ -45,13 +45,13 @@ template<>
 inline void VertexBufferLayout::Push<float>(unsigned int count)
 {
 	m_Elements.push_back({ GL_FLOAT, count, GL_FALSE });
-	m_Stride += count * VertexBufferElement::GetSizeOfTipe(GL_FLOAT);
+	m_Stride += VertexBufferElement::GetSizeOfTipe(GL_FLOAT);
 }
 template<>
 inline void VertexBufferLayout::Push<int>(unsigned int count)
 {
 	m_Elements.push_back({ GL_UNSIGNED_INT, count, GL_FALSE });
-	m_Stride += count * VertexBufferElement::GetSizeOfTipe(GL_UNSIGNED_INT);
+	m_Stride += VertexBufferElement::GetSizeOfTipe(GL_UNSIGNED_INT);
 }
 template<>
 inline void VertexBufferLayout::Push<unsigned char>(unsigned int count)
